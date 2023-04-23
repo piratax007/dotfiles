@@ -1,0 +1,2 @@
+;;; Generated package description from js-auto-format-mode.el  -*- no-byte-compile: t -*-
+(define-package "js-auto-format-mode" "1.1.1" "Minor mode for auto-formatting JavaScript code" '((emacs "24")) :commit "29d245b4d126a5fc5153a4d8f17396be4165b4a6" :authors '(("Masafumi Koba" . "ybiquitous@gmail.com")) :maintainer '("Masafumi Koba" . "ybiquitous@gmail.com") :keywords '("languages") :url "https://github.com/ybiquitous/js-auto-format-mode")
