@@ -214,15 +214,17 @@ bar {
 # COMPOSITOR
 
 # Uncomment this line if you are using picom compositor
-# exec_always picom
-
-exec_always compton -f -i .5
+exec_always picom -f
 
 # block session
-bindsym Ctrl+Mod1+l exec i3lock
+bindsym Ctrl+Mod1+l exec convert ~/Pictures/i3lock-background.jpg RGB:- | i3lock --raw 1920x1080:rgb --image /dev/stdin -t
+# bindsym Ctlr+Mod1+l exec xflock4
 
 # launch tor-browser
 bindsym $mod+T exec /opt/tor-browser_en-US/Browser/start-tor-browser
 
 # enable touchpad tab to click
 exec_always xinput set-prop "ELAN0678:00 04F3:3195 Touchpad" "libinput Tapping Enabled" 1x
+
+# enable internationalization layout for us keyboard (in order to use Spanish special characters)
+exec_always setxkbmap -model pc105 -layout us altgr-intl
