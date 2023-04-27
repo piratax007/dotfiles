@@ -1,0 +1,47 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        color_good = "#55aa55"
+        color_degraded = "#55748e"
+        color_bad = "#f05830"
+        interval = 1
+}
+
+order += "disk /"
+order += "memory"
+order += "tztime local"
+order += "battery 0"
+order += "volume master"
+
+battery 0 {
+        format = "%status %percentage %remaining %emptytime"
+        format_down = "No baterry"
+        status_chr = "⚡ CHR"
+        status_bat = "🔋 BAT"
+        status_unk = "? UNK"
+        status_full = "☻ FULL"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
+tztime local {
+       format = "D %m %d, %Y T %H:%M:%S"
+}
+
+memory {
+       format = "RAM %used/%total"
+       threshold_degraded = "25%"
+       format_degraded = "Memory: %free/%total"
+}
+
+disk "/" {
+     format = "/: %free/%total"
+}
+
+volume master {
+       format = "♪: %volume"
+       format_muted = "♪: muted"
+       device = "default"
+       mixer = "Master"
+       mixer_idx = 0
+}

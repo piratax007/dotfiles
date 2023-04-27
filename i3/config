@@ -117,7 +117,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Tilix"
-set $ws2 "2: Navigators"
+set $ws2 "2: Browsers"
 set $ws3 "3: Picharm"
 set $ws4 "4: Webstorm"
 set $ws5 "5: Goland"
@@ -204,27 +204,34 @@ bar {
   }
 }
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-# 		position top
-#         status_command i3status
-# }
 
-# COMPOSITOR
 
-# Uncomment this line if you are using picom compositor
+# Compositor
 exec_always picom -f
 
 # block session
 bindsym Ctrl+Mod1+l exec convert ~/Pictures/i3lock-background.jpg RGB:- | i3lock --raw 1920x1080:rgb --image /dev/stdin -t
-# bindsym Ctlr+Mod1+l exec xflock4
 
 # launch tor-browser
 bindsym $mod+T exec /opt/tor-browser_en-US/Browser/start-tor-browser
 
-# enable touchpad tab to click
+# enable touchpad tab to click. use xinput to list all input, change "ELAN0678:00 04F3:3195 Touchpad" with the name of the TouchPad device.
 exec_always xinput set-prop "ELAN0678:00 04F3:3195 Touchpad" "libinput Tapping Enabled" 1x
 
 # enable internationalization layout for us keyboard (in order to use Spanish special characters)
 exec_always setxkbmap -model pc105 -layout us altgr-intl
+
+# enable primenote (take care, this is useful only if can resolve the installation of primenote with pip - thanks pep 668)
+exec_always --no-startup-id ~/.local/bin/primenote
+
+# set a wallpaper using feh
+exec_always --no-startup-id feh --bg-scale ~/Pictures/moon.jpg
+
+# change workspace number based on its contents
+# apt install rust-all
+# cargo install iwwsr
+exec_always --no-startup-id $HOME/.cargo/bin/i3wsr
+
+# network manager
+# apt install nm-applet
+exec_always --no-startup-id nm-applet
