@@ -13,7 +13,7 @@
  '(fill-column 120)
  '(ispell-dictionary nil)
  '(package-selected-packages
-   '(smart-tabs-mode markdown-preview-mode js-auto-format-mode dockerfile-mode multi-line move-text go-mode python-mode monokai-theme markdown-mode))
+   '(yaml-mode smart-tabs-mode markdown-preview-mode js-auto-format-mode dockerfile-mode multi-line move-text go-mode python-mode monokai-theme markdown-mode))
  '(tab-width 4))
 (smart-tabs-insinuate 'python 'javascript 'ruby)
 (custom-set-faces
