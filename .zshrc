@@ -126,7 +126,8 @@ export DESTINY=/media/fausto/support/backup_CAD
 alias bcoy='clear && rm ./bin/coyim && make build && ./bin/coyim'
 alias bcoydb='G_DEBUG=fatal_warnings bin/coyim -debug'
 alias backup='rsync -artvup --exclude 'go' --exclude 'processing-4.0b6' $ORIGIN $ORIGIN1 $ORIGIN2 $ORIGIN3 $ORIGIN5 $ORIGIN6 --exclude 'website' --exclude 'website-autonomia.digital' $ORIGIN7 $ORIGIN8 $ORIGIN9 $ORIGIN10 $ORIGIN11 $ORIGIN12 $DESTINY'
-alias emacs=emacs -nw
+alias emacs="emacs -nw"
+alias ls="lsd -alF"
 
 [[ -s "/home/fausto/.gvm/scripts/gvm" ]] && source "/home/fausto/.gvm/scripts/gvm"
 
@@ -145,3 +146,5 @@ fi
 # Thunderbird environments variables
 export THUNDERBIRD_SOURCE="~/repos/thunderbird/"
 export MOZBUILD="~/repos/thunderbird_deps"
+
+export PATH=$PATH:/home/fausto/.spicetify
