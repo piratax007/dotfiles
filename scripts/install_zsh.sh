@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+# prerequisite:
+# run the install_git script
+# run the install_terminal_utils script
+
 set -e
 
 export DEBIAN_FRONTEND=noninteractive
-
-apt update > /dev/null
 
 scripts_dir=$(pwd)
 dotfiles_dir=$scripts_dir/..
@@ -12,22 +14,28 @@ dotfiles_dir=$scripts_dir/..
 existing_wget=`which wget || echo ""`
 if [ -z "existing_wget" ]; then
     echo ""
-    echo "Will be installed wget, please user the root password"
+    echo "Will be installed wget, please use your root password"
     su -c "apt -y install wget >> /dev/null"
 fi
 
 cat <<END
 +-------------------------------------------------------+
-  The installation and configuration process of ZSH
-  will be start. In order to set ZSH as the default
-  shell you should to use your user password.
+  In order to install ZSH, use the root password.
 +-------------------------------------------------------+
 END
 
-cp dotfiles_dir/.zshrc ~/
+su -c "apt install -y zsh"
 
-apt install -y zsh
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 
+cp $dotfiles_dir/.zshrc ~/
+
+cat <<END
++-------------------------------------------------------+
+  In order to set ZSH as default shell, use your
+  user password.
++-------------------------------------------------------+
+END
 chsh -s $(which zsh)
 
 zsh
