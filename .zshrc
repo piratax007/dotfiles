@@ -148,3 +148,8 @@ export THUNDERBIRD_SOURCE="~/repos/thunderbird/"
 export MOZBUILD="~/repos/thunderbird_deps"
 
 export PATH=$PATH:/home/fausto/.spicetify
+
+# install rust from the oficial repo
+# cargo install i3wsr
+# echo 'eval "$(atuin init zsh)"' >> ~/.zshrc
+eval "$(atuin init zsh)"

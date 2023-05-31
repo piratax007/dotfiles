@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# This script has to be run as root
+
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+
+apt update > /dev/null
+
+
+scripts_dir=$(pwd)
+dotfiles_dir=$scripts_dir/..
+
+cat <<END
++-------------------------------------------------------+
+  The process of installation and configuration of zsh
+  will be start. In order to set zsh such a default
+  shell you should to use your user password.
++-------------------------------------------------------+
+END
+
+cp dotfiles_dir/.zshrc ~/
+
+apt install -y zsh
+
+chsh -s $(which zsh)
+
+zsh
