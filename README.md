@@ -1,11 +1,19 @@
 # dotfiles
+Here I have a serie of scripts, instructions and descriptions about my setup on Debian GNU/Linux. The intention of these
+is automate the installation and setup process.
+
+## Disclaimer
+These files are tested and useful in my personal configuration, if someone wants to use these, do it under your own risk.
 
 ## Software
+Here I have a description of the software that I usually install. In some files I have specific instructions to install
+specific dependencies.
+
 ```
 # apt install bat lsd neofetch cpufetch i3 ranger bpytop bluman zsh
 ```
 
-## Setup
+## Setup files
 
 1. Copy `i3`, `lsd` and `ranger` to the `~/.config/` directory
 2. Copy `.icons`, `.themes` and `.emacs.d` to `~` directory
