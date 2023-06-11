@@ -61,7 +61,10 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show combi -run-command "i3-msg exec '{cmd}'" -font "System JetBrains Mono Display 18" -show-icons
+# bindsym $mod+d exec --no-startup-id rofi -show combi -run-command "i3-msg exec '{cmd}'" -font "System JetBrains Mono Display 18" -show-icons
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-5/launcher.sh
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/scripts/powermenu_t2
+bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/volume.sh
 # bindsym $mod+d exec --no-startup-id rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hflg "#9575cd" -font "System JetBrains Mono Display 18" -show-icons
 
 # change focus
