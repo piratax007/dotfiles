@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/fausto/.oh-my-zsh"
+export ZSH="/home/$(whoami)/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -25,7 +25,7 @@ CASE_SENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -109,23 +109,21 @@ export PASSWORD_STORE_DIR=/home/fausto/repos/secrets/password-store
 
 export PATH=$GOBIN:$GOROOT/bin:$PASSWORD_STORE_DIR:/home/fausto/.local/bin:$PYCHARM:$PATH:/home/fausto/.rvm/bin
 
-export ORIGIN=~/.config/primenote/notes
 export ORIGIN1=~/.gnupg
 export ORIGIN2=~/.ssh
 export ORIGIN3=~/Documents
 export ORIGIN5=~/Pictures
 export ORIGIN6=~/repos/secrets
-export ORIGIN7=~/.basrc
-export ORIGIN8=~/.gitconfig
+export ORIGIN7=~/.basrc 
+export ORIGIN8=~/.gitconfig # add to dootfiles repo
 export ORIGIN9=~/.profile
 export ORIGIN10=~/.zshrc
-export ORIGIN11=~/.config/ranger
-export ORIGIN12=~/.emacs
+export ORIGIN11=~/.config/ranger # add to dotfiles repo
 export DESTINY=/media/fausto/support/backup_CAD
 
 alias bcoy='clear && rm ./bin/coyim && make build && ./bin/coyim'
 alias bcoydb='G_DEBUG=fatal_warnings bin/coyim -debug'
-alias backup='rsync -artvup --exclude 'go' --exclude 'processing-4.0b6' $ORIGIN $ORIGIN1 $ORIGIN2 $ORIGIN3 $ORIGIN5 $ORIGIN6 --exclude 'website' --exclude 'website-autonomia.digital' $ORIGIN7 $ORIGIN8 $ORIGIN9 $ORIGIN10 $ORIGIN11 $ORIGIN12 $DESTINY'
+alias backup='rsync -artup $ORIGIN1 $ORIGIN2 $ORIGIN3 $ORIGIN5 $ORIGIN6 $ORIGIN7 $ORIGIN8 $ORIGIN9 $ORIGIN10 $ORIGIN11 $DESTINY'
 alias emacs="emacs -nw"
 alias ls="lsd -alF"
 
@@ -153,3 +151,5 @@ export PATH=$PATH:/home/fausto/.spicetify
 # cargo install i3wsr
 # echo 'eval "$(atuin init zsh)"' >> ~/.zshrc
 eval "$(atuin init zsh)"
+
+export PATH=$HOME/.config/rofi/scripts:$PATH
