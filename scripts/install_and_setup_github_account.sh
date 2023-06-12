@@ -8,7 +8,7 @@ existing_wget=`which git || echo ""`
 if [ -z "existing_git" ]; then
     echo ""
     echo "Will be installed git, please use your root password"
-    su -c "apt -y install git >> /dev/null"
+    su -c "apt update && apt-get && -y install git >> /dev/null"
 fi
 
 echo -n "Please enter the path (ending with /) of the SSH keys that are used to authenticate your GitHub sesion: "
@@ -31,4 +31,9 @@ read gitSetupFiles
 
 rsync -a $gitSetupFiles ~/
 
+mkdir ~/repos
+
+cd ~/repos
+
+git clone git@github.com:piratax007/dotfiles.git
 
