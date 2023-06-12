@@ -9,6 +9,14 @@ These files are tested and useful in my personal configuration, if someone wants
 Here I have a description of the software that I usually install. In some files I have specific instructions to install
 specific dependencies.
 
+## Scripts
+The `scripts` directory has a serie of scripts to automate the installation and restauration of the
+configuration. Execute the scripts listed below in the given order.
+
+1. `install_and_setup_github_account.sh` script: This script will be install github and will ask you for the location of
+   your PGP and SSH keys that use to login and sign in Github, and the location of you git config files. Additionally,
+   this scripts will clone the dotfiles repo.
+
 ```
 # apt install bat lsd neofetch cpufetch i3 ranger bpytop bluman zsh
 ```
