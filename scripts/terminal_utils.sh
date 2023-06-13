@@ -11,7 +11,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su - "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh nm-applet bpytop i3lock-fancy"
+su - "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh nm-applet bpytop i3lock-fancy wget"
 
 cat <<END
 +----------------------------------------------------------------+

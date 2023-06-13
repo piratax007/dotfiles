@@ -11,13 +11,6 @@ export DEBIAN_FRONTEND=noninteractive
 scripts_dir=$(pwd)
 dotfiles_dir=$scripts_dir/..
 
-existing_wget=`which wget || echo ""`
-if [ -z "existing_wget" ]; then
-    echo ""
-    echo "Will be installed wget, please use your root password"
-    su -c "apt -y install wget >> /dev/null"
-fi
-
 cat <<END
 +-------------------------------------------------------+
   In order to install ZSH, use the root password.
