@@ -13,9 +13,11 @@ fi
 
 export GPGKEYS=~/.gnupg
 export SSHKEYS=~/.ssh
+export GITCONFIG=~/.gitconfig
 export DOCUMENTS=~/Documents
 export PICTURES=~/Pictures
+export ATUIN_HISTORY=~/.local/share/atuin
 export DEST=/media/$(whoami)/support/backup
 
-rsync -au $GPGKEYS $SSHKEYS $DOCUMENTS $PICTURES ~/.gitconfig $DEST
+rsync -au $GPGKEYS $SSHKEYS $DOCUMENTS $PICTURES $GITCONFIG $ATUIN_HISTORY $DEST
 
