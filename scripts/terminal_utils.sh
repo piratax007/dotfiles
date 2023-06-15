@@ -4,31 +4,29 @@ set -e
 
 export DEBIAN_FRONTEND=noninteractive
 
+scripts_dir=$(pwd)
+dotfiles_dir=$scripts_dir/..
+
 cat <<END
 +----------------------------------------------------------------+
   Will be installed the terminal utils and dependencies to
-  allow compled the setup.
+  allow compled the setup. Please use your root password.
 +----------------------------------------------------------------+
 END
 
-su - "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh nm-applet bpytop i3lock-fancy wget"
+su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh nm-applet bpytop wget translate-shell emacs mc gdu"
 
 cat <<END
 +----------------------------------------------------------------+
-  Will be installed rust in order to allow the installation of
-  iwwsr and atuin
+  Will be restored the configuration files.
 +----------------------------------------------------------------+
 END
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rsync -a $dotfiles_dir/ranger ~/.config
 
-cat <<END
-+----------------------------------------------------------------+
-  Will be installed iwwsr
-+----------------------------------------------------------------+
-END
+rsync -a $dotfiles_dir/lsd ~/.config
 
-cargo install iwwsr
+rsync -a $dotfiles_dir/.emacs $dotfiles_dir/.emacs.d ~/.config
 
 cat <<END
 +----------------------------------------------------------------+
@@ -37,3 +35,5 @@ cat <<END
 END
 
 cargo install atuin
+
+rsync -a $dotfiles_dir/atuin ~/.config
