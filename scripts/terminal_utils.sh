@@ -37,3 +37,8 @@ END
 cargo install atuin
 
 rsync -a $dotfiles_dir/atuin ~/.config
+
+echo -n "Please enther the path of the atuin db directory backup:"
+read atuinDBBackup
+
+rsync -au atuinDBBackup ~/.local/share/atuin
