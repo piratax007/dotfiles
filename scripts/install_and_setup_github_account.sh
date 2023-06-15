@@ -27,9 +27,9 @@ read gpgPublicKey
 gpg --import gpgPublicKey
 
 echo -n "Please enter the path (ending with /) of the .gitconfig and .gitmessage files: "
-read gitSetupFiles
+read gitConfigFiles
 
-rsync -a $gitSetupFiles ~/
+rsync -a $gitConfigFiles ~/
 
 mkdir ~/repos
 
