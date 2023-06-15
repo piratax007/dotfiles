@@ -17,5 +17,5 @@ export DOCUMENTS=~/Documents
 export PICTURES=~/Pictures
 export DEST=/media/$(whoami)/support/backup
 
-rsync -au $GPGKEYS $SSHKEYS $DOCUMENTS $PICTURES $DEST
+rsync -au $GPGKEYS $SSHKEYS $DOCUMENTS $PICTURES ~/.gitconfig $DEST
 
