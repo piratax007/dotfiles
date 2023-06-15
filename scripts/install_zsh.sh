@@ -21,7 +21,7 @@ su -c "apt install -y zsh"
 
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 
-cp $dotfiles_dir/.zshrc ~/
+rsync -a $dotfiles_dir/.zshrc ~/
 
 cat <<END
 +-------------------------------------------------------+
