@@ -109,21 +109,15 @@ export PASSWORD_STORE_DIR=/home/fausto/repos/secrets/password-store
 
 export PATH=$GOBIN:$GOROOT/bin:$PASSWORD_STORE_DIR:/home/fausto/.local/bin:$PYCHARM:$PATH:/home/fausto/.rvm/bin
 
-export ORIGIN1=~/.gnupg
-export ORIGIN2=~/.ssh
-export ORIGIN3=~/Documents
-export ORIGIN5=~/Pictures
-export ORIGIN6=~/repos/secrets
-export ORIGIN7=~/.basrc 
+# export ORIGIN6=~/repos/secrets
+# export ORIGIN7=~/.basrc 
 export ORIGIN8=~/.gitconfig # add to dootfiles repo
-export ORIGIN9=~/.profile
-export ORIGIN10=~/.zshrc
-export ORIGIN11=~/.config/ranger # add to dotfiles repo
-export DESTINY=/media/fausto/support/backup_CAD
+# export ORIGIN9=~/.profile
+# export DESTINY=/media/fausto/support/backup_CAD
 
 alias bcoy='clear && rm ./bin/coyim && make build && ./bin/coyim'
 alias bcoydb='G_DEBUG=fatal_warnings bin/coyim -debug'
-alias backup='rsync -artup $ORIGIN1 $ORIGIN2 $ORIGIN3 $ORIGIN5 $ORIGIN6 $ORIGIN7 $ORIGIN8 $ORIGIN9 $ORIGIN10 $ORIGIN11 $DESTINY'
+# alias backup='rsync -artup $ORIGIN1 $ORIGIN2 $ORIGIN3 $ORIGIN5 $ORIGIN6 $ORIGIN7 $ORIGIN8 $ORIGIN9 $ORIGIN10 $ORIGIN11 $DESTINY'
 alias emacs="emacs -nw"
 alias ls="lsd -alF"
 
