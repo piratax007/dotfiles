@@ -14,7 +14,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh nm-applet bpytop wget translate-shell emacs mc gdu"
+su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh nm-applet bpytop wget translate-shell emacs mc gdu pdftk unrar youtube-dl calcurse"
 
 cat <<END
 +----------------------------------------------------------------+
@@ -22,11 +22,11 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-rsync -a $dotfiles_dir/ranger ~/.config
+rsync -a $dotfiles_dir/ranger/ ~/.config
 
-rsync -a $dotfiles_dir/lsd ~/.config
+rsync -a $dotfiles_dir/lsd/ ~/.config
 
-rsync -a $dotfiles_dir/.emacs $dotfiles_dir/.emacs.d ~/.config
+rsync -a $dotfiles_dir/.emacs $dotfiles_dir/.emacs.d/ ~/.config
 
 cat <<END
 +----------------------------------------------------------------+
@@ -36,7 +36,7 @@ END
 
 cargo install atuin
 
-rsync -a $dotfiles_dir/atuin ~/.config
+rsync -a $dotfiles_dir/atuin/ ~/.config
 
 echo -n "Please enther the path of the atuin db directory backup:"
 read atuinDBBackup
