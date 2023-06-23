@@ -120,6 +120,8 @@ alias bcoydb='G_DEBUG=fatal_warnings bin/coyim -debug'
 # alias backup='rsync -artup $ORIGIN1 $ORIGIN2 $ORIGIN3 $ORIGIN5 $ORIGIN6 $ORIGIN7 $ORIGIN8 $ORIGIN9 $ORIGIN10 $ORIGIN11 $DESTINY'
 alias emacs="emacs -nw"
 alias ls="lsd -alF"
+alias calcurse="calcurse /Documents/calcurse"
+alias cat="batcat"
 
 [[ -s "/home/fausto/.gvm/scripts/gvm" ]] && source "/home/fausto/.gvm/scripts/gvm"
 
