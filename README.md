@@ -13,7 +13,7 @@ Execute the scripts listed below in the given order.
    your PGP and SSH keys that use to login and sign in Github, and the location of you git config files. Additionally,
    this scripts will clone the dotfiles repo. To execute this script use the followin command:
    ```
-   $ wget -q https://github.com/piratax007/dotfiles/blob/main/scripts/install_and_setup_github_account.sh && bash install_and_setup_github_account.sh
+   $ wget -q https://raw.githubusercontent.com/piratax007/dotfiles/main/scripts/install_and_setup_github_account.sh && bash install_and_setup_github_account.sh
    ```
 2. `install_i3wm.sh` script: Will be installed and copied all the utilities and files need to have i3wm in production
    flow.
