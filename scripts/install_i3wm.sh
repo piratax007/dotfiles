@@ -13,7 +13,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "apt -y install i3 i3-wm i3status i3lock i3blocks i3lock-fancy rofi"
+su -c "apt -y install i3 i3-wm i3status i3lock i3blocks i3lock-fancy rofi lxappearance lxrandr"
 
 cat <<END
 +----------------------------------------------------------------+
