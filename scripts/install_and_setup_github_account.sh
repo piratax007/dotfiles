@@ -4,7 +4,7 @@ set -e
 
 export DEBIAN_FRONTEND=noninteractive
 
-existing_wget=`which git || echo ""`
+existing_git=`which git || echo ""`
 if [ -z "existing_git" ]; then
     echo ""
     echo "Will be installed git, please use your root password"
