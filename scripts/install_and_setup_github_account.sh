@@ -5,14 +5,14 @@ set -e
 export DEBIAN_FRONTEND=noninteractive
 
 existing_git=`which git || echo ""`
-if [ -z "existing_git" ]; then
+if [ -z "$existing_git" ]; then
     echo ""
     echo "Will be installed git, please use your root password"
     su -c "apt update && apt-get && -y install git >> /dev/null"
 fi
 
 existing_rsync=`which rsync || echo ""`
-if [ -z "existing_rsync" ]; then
+if [ -z "$existing_rsync" ]; then
     echo ""
     echo "Will be installed rsync, please use your root password"
     su -c "apt update && apt-get && -y install rsync >> /dev/null"
