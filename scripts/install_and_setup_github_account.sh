@@ -8,14 +8,14 @@ existing_git=`which git || echo ""`
 if [ -z "$existing_git" ]; then
     echo ""
     echo "Will be installed git, please use your root password"
-    su -c "apt update && apt-get && -y install git >> /dev/null"
+    su -c "apt update && apt -y install git >> /dev/null"
 fi
 
 existing_rsync=`which rsync || echo ""`
 if [ -z "$existing_rsync" ]; then
     echo ""
     echo "Will be installed rsync, please use your root password"
-    su -c "apt update && apt-get && -y install rsync >> /dev/null"
+    su -c "apt update && apt -y install rsync >> /dev/null"
 fi
 
 echo -n "Please enter the path (ending with /) of the SSH keys that are used to authenticate your GitHub sesion: "
