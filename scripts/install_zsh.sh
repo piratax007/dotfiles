@@ -31,3 +31,9 @@ cat <<END
 END
 
 chsh -s $(which zsh)
+
+cat <<END
++-------------------------------------------------------+
+  ZSH has been installed and configured successfully.
++-------------------------------------------------------+
+END

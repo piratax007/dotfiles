@@ -14,7 +14,13 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh nm-applet bpytop wget translate-shell emacs mc gdu pdftk unrar youtube-dl calcurse taskwarrior"
+su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh nm-applet bpytop wget translate-shell emacs mc gdu pdftk unrar youtube-dl calcurse taskwarrior >> /dev/null"
+
+cat <<END
++----------------------------------------------------------------+
+  The utilities has been installed successfully.
++----------------------------------------------------------------+
+END
 
 cat <<END
 +----------------------------------------------------------------+
@@ -30,6 +36,12 @@ rsync -a $dotfiles_dir/.emacs $dotfiles_dir/.emacs.d/ ~/.config
 
 cat <<END
 +----------------------------------------------------------------+
+  The configuration files has been restored successfully.
++----------------------------------------------------------------+
+END
+
+cat <<END
++----------------------------------------------------------------+
   Will be installed atuin terminal history manager
 +----------------------------------------------------------------+
 END
@@ -41,7 +53,13 @@ rsync -a $dotfiles_dir/atuin/ ~/.config
 echo -n "Please enter the path of the atuin db directory backup:"
 read atuinDBBackup
 
-rsync -au atuinDBBackup ~/.local/share/atuin
+rsync -au $atuinDBBackup ~/.local/share/atuin
+
+cat <<END
++----------------------------------------------------------------+
+  Atuin has been installed successfully.
++----------------------------------------------------------------+
+END
 
 cat <<END
 +----------------------------------------------------------------+
@@ -78,7 +96,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-echo -n "Please enter the path of the Documents directory backup:"
+echo -n "Please enter the path to the Documents directory backup:"
 read documentsDirectoryBackup
 
 cat <<END
@@ -87,7 +105,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-rsync -au documentsDirectoryBackup ~/Documents
+rsync -au $documentsDirectoryBackup ~/Documents
 
 cat <<END
 +----------------------------------------------------------------+
@@ -95,7 +113,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-echo -n "Please enter the path of the Pictures directory backup:"
+echo -n "Please enter the path to the Pictures directory backup:"
 read picturesDirectoryBackup
 
 cat <<END
@@ -104,10 +122,27 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-rsync -au documentsDirectoryBackup ~/Pictures
+rsync -au $picturesDirectoryBackup ~/Pictures
 
 cat <<END
 +----------------------------------------------------------------+
   The Pictures directory has been restored successfully.
++----------------------------------------------------------------+
+END
+
+cat <<END
++----------------------------------------------------------------+
+  The backup script will be restored..
++----------------------------------------------------------------+
+END
+
+echo -n "Please enter the path to the backup scrip:"
+read backupScript
+
+rsync -au $backupScript ~/.local/bin
+
+cat <<END
++----------------------------------------------------------------+
+  The backup script has been restores successfully.
 +----------------------------------------------------------------+
 END

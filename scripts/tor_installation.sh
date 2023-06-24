@@ -21,4 +21,10 @@ wget -qO- https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8C
 apt update >> /dev/null
 apt -y install tor deb.torproject.org-keyring  >> /dev/null
 
+cat <<END
++---------------------------------------------------------+
+  tor has been installed successfully.
++---------------------------------------------------------+
+END
+
 # Backlog: Add configuration of SSH over tor

@@ -39,19 +39,12 @@ rsync -au $dotfiles_dir/rofi ~/.config/rofi
 
 rsync -a $dotfiles_dir/moon.jpg ~/Pictures
 
-cat <<END
-+----------------------------------------------------------------+
-  Will be installed rust in order to allow the installation of
-  iwwsr
-+----------------------------------------------------------------+
-END
-
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+cargo install iwwsr
+
 cat <<END
 +----------------------------------------------------------------+
-  Will be installed iwwsr
+  i3wm has been installed and configured successfully.
 +----------------------------------------------------------------+
 END
-
-cargo install iwwsr
