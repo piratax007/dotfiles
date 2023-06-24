@@ -39,6 +39,13 @@ rsync -au $dotfiles_dir/rofi ~/.config/rofi
 
 rsync -a $dotfiles_dir/moon.jpg ~/Pictures
 
+existing_curl=`which curl || echo ""`
+if [ -z "$existing_curl" ]; then
+    echo ""
+    echo "Will be installed curl, please use your root password"
+    su -c "apt update && apt -y install curl >> /dev/null"
+fi
+
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 cargo install iwwsr
