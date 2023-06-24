@@ -26,12 +26,12 @@ rsync -a $sshKeys ~/.ssh
 echo -n "Please enter the path and file name of the GPG private key that is used to sign your GitHub commits: "
 read gpgPrivateKey
 
-gpg --import gpgPrivateKey
+gpg --import $gpgPrivateKey
 
 echo -n "Please enter the path and file name of the GPG public key that is used to sign your GitHub commits: "
 read gpgPublicKey
 
-gpg --import gpgPublicKey
+gpg --import $gpgPublicKey
 
 echo -n "Please enter the path (ending with /) of the .gitconfig and .gitmessage files: "
 read gitConfigFiles
