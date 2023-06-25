@@ -9,8 +9,6 @@ regular_user=$1
 
 export DEBIAN_FRONTEND=noninteractive
 
-su -
-
 cat <<END
 +--------------------------------------------------------------+
 +  The installation process of Docker has been started.        +
@@ -18,14 +16,14 @@ cat <<END
 +--------------------------------------------------------------+
 END
 
-apt -y install ca-certificate curl gnupg lsb-release >> /dev/null
+apt -y install ca-certificates curl gnupg bookworm >> /dev/null
 
 mkdir -m 0755 -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
 echo \
 "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
-$(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list >> /dev/null
+bookworm stable" | tee /etc/apt/sources.list.d/docker.list >> /dev/null
 
 chmod a+r /etc/apt/keyrings/docker.gpg
 apt update >> /dev/null
@@ -35,7 +33,7 @@ apt -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker
 # put docker as service
 systemctl enable docker >> /dev/null
 
-usermod -aG docker $regular_user
+su - -c "usermod -aG docker $regular_user"
 
 cat <<END
 +------------------------------------------------+

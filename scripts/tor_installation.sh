@@ -4,8 +4,6 @@
 
 set -e
 
-su -
-
 cat <<END
 +---------------------------------------------------------+
   tor will be installed. This process would be take
@@ -16,7 +14,7 @@ END
 apt -y install apt-transport-https gnupg >> /dev/null
 
 echo \
-"deb     [signed-by=/usr/share/keyrings/tor-archive-keyring.gpg] https://deb.torproject.org/torproject.org $(lsb_release -cs) main" > /etc/apt/sources.list.d/tor.list
+"deb     [signed-by=/usr/share/keyrings/tor-archive-keyring.gpg] https://deb.torproject.org/torproject.org bookworm main" > /etc/apt/sources.list.d/tor.list
 
 wget -qO- https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --dearmor > /usr/share/keyrings/tor-archive-keyring.gpg
 
