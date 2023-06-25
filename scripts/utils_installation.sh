@@ -80,7 +80,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "~/respos/dotfiles/docker-installation.sh $USER"
+su -c "~/repos/dotfiles/docker-installation.sh $USER"
 
 cat <<END
 +----------------------------------------------------------------+
