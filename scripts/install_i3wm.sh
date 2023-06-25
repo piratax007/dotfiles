@@ -39,7 +39,7 @@ rsync -au $dotfiles_dir/rofi ~/.config/rofi
 
 rsync -a $dotfiles_dir/moon.jpg ~/Pictures
 
-cargo install iwwsr
+cargo install i3wsr
 
 cat <<END
 +----------------------------------------------------------------+
