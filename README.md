@@ -15,7 +15,8 @@ Execute the scripts listed below in the given order.
    ```
    $ wget -q https://raw.githubusercontent.com/piratax007/dotfiles/main/scripts/install_and_setup_github_account.sh && bash install_and_setup_github_account.sh
    ```
-2. `install_i3wm.sh` script: Will be installed and copied all the utilities and files need to have i3wm in production
+
+2. `utils_installation.sh` script: Will be installed all the utilities that are useful on terminal.
+
+3. `install_i3wm.sh` script: Will be installed and copied all the utilities and files need to have i3wm in production
    flow.
-3. `utils_installation.sh` script: Will be installed all the utilities that are useful on terminal.
-4. `install_zsh.sh` script: Will be installed zsh and restored it's config files.

@@ -14,7 +14,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh nm-applet bpytop wget translate-shell emacs mc gdu pdftk unrar youtube-dl calcurse taskwarrior >> /dev/null"
+su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh nm-applet bpytop wget translate-shell emacs mc gdu pdftk unrar youtube-dl calcurse taskwarrior libxcb1-dev build-essential >> /dev/null"
 
 cat <<END
 +----------------------------------------------------------------+
@@ -45,6 +45,19 @@ cat <<END
   Will be installed atuin terminal history manager
 +----------------------------------------------------------------+
 END
+
+existing_curl=`which curl || echo ""`
+if [ -z "$existing_curl" ]; then
+    echo ""
+    echo "Will be installed curl, please use your root password"
+    su -c "apt update && apt -y install curl >> /dev/null"
+fi
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+source "$HOME/.cargo/env"
+
+./install_zsh.sh
 
 cargo install atuin
 
