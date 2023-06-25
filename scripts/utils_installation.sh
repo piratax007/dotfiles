@@ -14,7 +14,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh nm-applet bpytop wget translate-shell emacs mc gdu pdftk unrar youtube-dl calcurse taskwarrior libxcb1-dev build-essential >> /dev/null"
+su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh network-manager-gnome bpytop wget translate-shell emacs mc gdu pdftk unrar youtube-dl calcurse taskwarrior libxcb1-dev build-essential >> /dev/null"
 
 cat <<END
 +----------------------------------------------------------------+
@@ -80,7 +80,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "docker-installation.sh $USER"
+su -c "./docker-installation.sh $USER"
 
 cat <<END
 +----------------------------------------------------------------+
@@ -94,7 +94,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "tor-installation.sh"
+su -c "./tor-installation.sh"
 
 cat <<END
 +----------------------------------------------------------------+
