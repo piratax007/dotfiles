@@ -28,11 +28,11 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-rsync -a $dotfiles_dir/ranger/ ~/.config
+rsync -au $dotfiles_dir/ranger ~/.config
 
-rsync -a $dotfiles_dir/lsd/ ~/.config
+rsync -au $dotfiles_dir/lsd ~/.config
 
-rsync -a $dotfiles_dir/.emacs $dotfiles_dir/.emacs.d/ ~/.config
+rsync -au $dotfiles_dir/.emacs $dotfiles_dir/.emacs.d ~/
 
 cat <<END
 +----------------------------------------------------------------+
@@ -61,7 +61,7 @@ source "$HOME/.cargo/env"
 
 cargo install atuin
 
-rsync -a $dotfiles_dir/atuin/ ~/.config
+rsync -au $dotfiles_dir/atuin ~/.config
 
 echo -n "Please enter the path of the atuin db directory backup:"
 read atuinDBBackup
