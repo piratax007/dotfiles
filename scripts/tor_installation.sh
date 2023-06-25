@@ -4,6 +4,8 @@
 
 set -e
 
+su -
+
 cat <<END
 +---------------------------------------------------------+
   tor will be installed. This process would be take

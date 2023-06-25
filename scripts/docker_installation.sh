@@ -9,6 +9,8 @@ regular_user=$1
 
 export DEBIAN_FRONTEND=noninteractive
 
+su -
+
 cat <<END
 +--------------------------------------------------------------+
 +  The installation process of Docker has been started.        +
