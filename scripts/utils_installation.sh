@@ -80,7 +80,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "./docker-installation.sh $USER"
+su -c "~/respos/dotfiles/docker-installation.sh $USER"
 
 cat <<END
 +----------------------------------------------------------------+
@@ -94,7 +94,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "./tor-installation.sh"
+su -c "~/repos/dotfiles/tor-installation.sh"
 
 cat <<END
 +----------------------------------------------------------------+
