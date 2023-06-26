@@ -14,7 +14,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh network-manager-gnome bpytop wget translate-shell emacs mc gdu pdftk unrar youtube-dl calcurse taskwarrior libxcb1-dev build-essential >> /dev/null"
+su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh network-manager-gnome bpytop wget translate-shell emacs mc gdu pdftk unrar youtube-dl calcurse taskwarrior libxcb1-dev build-essential ytfzf >> /dev/null"
 
 cat <<END
 +----------------------------------------------------------------+
@@ -42,7 +42,7 @@ END
 
 cat <<END
 +----------------------------------------------------------------+
-  Will be installed atuin terminal history manager
+  Will be installed rust.
 +----------------------------------------------------------------+
 END
 
@@ -57,7 +57,19 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 source "$HOME/.cargo/env"
 
+cat <<END
++----------------------------------------------------------------+
+  Rust has been installed successfully.
++----------------------------------------------------------------+
+END
+
 ./install_zsh.sh
+
+cat <<END
++----------------------------------------------------------------+
+  Will be installed atuin terminal history manager
++----------------------------------------------------------------+
+END
 
 cargo install atuin
 
