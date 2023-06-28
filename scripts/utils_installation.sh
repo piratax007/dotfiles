@@ -168,6 +168,28 @@ rsync -au $backupScript ~/.local/bin
 
 cat <<END
 +----------------------------------------------------------------+
-  The backup script has been restores successfully.
+  The backup script has been restored successfully.
++----------------------------------------------------------------+
+END
+
+echo -n "Please enter the path to the task data directory:"
+read taskData
+
+rsync -au $taskData ~/
+
+cat <<END
++----------------------------------------------------------------+
+  The task data has been restored successfully.
++----------------------------------------------------------------+
+END
+
+echo -n "Please enter the path to the task configuration file:"
+read taskConfigFile
+
+rsync -au $taskConfigFile ~/
+
+cat <<END
++----------------------------------------------------------------+
+  The task config file has been restored successfully.
 +----------------------------------------------------------------+
 END
