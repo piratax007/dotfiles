@@ -44,3 +44,14 @@ cd ~/repos
 
 git clone git@github.com:piratax007/dotfiles.git
 
+cd ~
+
+rm install_and_setup_github_account.sh
+
+cat <<END
++----------------------------------------------------------------+
+  Now you have all the stuff needed to continue with the
+  configuration of your setup. Go to /repos/dotfiles/script and
+  execute the utils_installation script.
++----------------------------------------------------------------+
+END
