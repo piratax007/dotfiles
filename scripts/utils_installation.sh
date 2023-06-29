@@ -193,3 +193,18 @@ cat <<END
   The task config file has been restored successfully.
 +----------------------------------------------------------------+
 END
+
+cat <<END
++----------------------------------------------------------------+
+  Will be restored the icons and themes for xfce4.
++----------------------------------------------------------------+
+END
+
+rsync -au $dotfiles_dir/.icons/ ~/
+rsync -au $dotfiles_dir/.themes/ ~/
+
+cat <<END
++----------------------------------------------------------------+
+  Icons and themes for xfce has been restored successfully.
++----------------------------------------------------------------+
+END
