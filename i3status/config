@@ -15,24 +15,24 @@ order += "battery 0"
 battery 0 {
         format = "%status %percentage %remaining %emptytime"
         format_down = "No baterry"
-        status_chr = "⚡ CHR"
+        status_chr = "󰂄 CHR"
         status_bat = "🔋 BAT"
-        status_unk = "? UNK"
-        status_full = "☻ FULL"
+        status_unk = "󰂃 UNK"
+        status_full = "󰁹 FULL"
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 10
 }
 
 tztime local {
-       format = "D %m %d, %Y T %H:%M:%S"
+       format = "  %m %d, %Y  %H:%M:%S"
 }
 
 memory {
-       format = "RAM %used/%total"
+       format = " %used/%total"
        threshold_degraded = "25%"
        format_degraded = "Memory: %free/%total"
 }
 
 disk "/" {
-     format = "/: %free/%total"
+     format = "󰋊 %free/%total"
 }

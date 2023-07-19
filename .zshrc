@@ -102,31 +102,21 @@ source $ZSH/oh-my-zsh.sh
 #
 
 # export GOROOT=/usr/bin
-export GOPATH=/usr/local/go/bin
+# export GOPATH=/usr/local/go/bin
 # export GOBIN=$GOPATH/bin
-export PYCHARM=/opt/pycharm-community-2021.3.3/bin
-export PASSWORD_STORE_DIR=/home/fausto/repos/secrets/password-store
+# export PASSWORD_STORE_DIR=/home/fausto/repos/secrets/password-store
 
-export PATH=$GOBIN:$GOROOT/bin:$PASSWORD_STORE_DIR:/home/fausto/.local/bin:$PYCHARM:$PATH:/home/fausto/.rvm/bin
+export PATH="$PATH:/home/$(whoami)/.local/bin"
 
-# export ORIGIN6=~/repos/secrets
-# export ORIGIN7=~/.basrc 
-export ORIGIN8=~/.gitconfig # add to dootfiles repo
-# export ORIGIN9=~/.profile
-# export DESTINY=/media/fausto/support/backup_CAD
-
-alias bcoy='clear && rm ./bin/coyim && make build && ./bin/coyim'
-alias bcoydb='G_DEBUG=fatal_warnings bin/coyim -debug'
-# alias backup='rsync -artup $ORIGIN1 $ORIGIN2 $ORIGIN3 $ORIGIN5 $ORIGIN6 $ORIGIN7 $ORIGIN8 $ORIGIN9 $ORIGIN10 $ORIGIN11 $DESTINY'
+# alias bcoy='clear && rm ./bin/coyim && make build && ./bin/coyim'
+# alias bcoydb='G_DEBUG=fatal_warnings bin/coyim -debug'
 alias emacs="emacs -nw"
 alias ls="lsd -alF"
-alias calcurse="calcurse /Documents/calcurse"
+alias calcurse="git -C ~/repos/calcurse pull -r && calcurse -D ~/repos/calcurse"
+alias task="git -C ~/.task pull -r && task"
 alias cat="batcat"
 
-[[ -s "/home/fausto/.gvm/scripts/gvm" ]] && source "/home/fausto/.gvm/scripts/gvm"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "/home/$(whoami)/.gvm/scripts/gvm" ]] && source "/home/$(whoami)/.gvm/scripts/gvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -137,11 +127,7 @@ fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# Thunderbird environments variables
-export THUNDERBIRD_SOURCE="~/repos/thunderbird/"
-export MOZBUILD="~/repos/thunderbird_deps"
-
-export PATH=$PATH:/home/fausto/.spicetify
+export PATH=$PATH:/home/$(whoami)/.spicetify
 
 # install rust from the oficial repo
 # cargo install i3wsr

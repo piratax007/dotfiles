@@ -92,7 +92,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "/home/$(whoami)/repos/dotfiles/scripts/docker-installation.sh $(whoami)"
+su -c "/home/$(whoami)/repos/dotfiles/scripts/docker_installation.sh $(whoami)"
 
 cat <<END
 +----------------------------------------------------------------+
@@ -106,7 +106,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "/home/$(whoami)/repos/dotfiles/scripts/tor-installation.sh"
+su -c "/home/$(whoami)/repos/dotfiles/scripts/tor_installation.sh"
 
 cat <<END
 +----------------------------------------------------------------+

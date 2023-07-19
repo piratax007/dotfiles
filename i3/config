@@ -203,10 +203,13 @@ exec_always picom -f
 bindsym Ctrl+Mod1+l exec i3lock-fancy -g
 
 # launch tor-browser
-bindsym $mod+T exec /opt/tor-browser_en-US/Browser/start-tor-browser
+bindsym $mod+T exec /opt/tor-browser/Browser/start-tor-browser
+
+# launch Arduino IDE
+bindsym $mod+Shift+A exec /opt/Arduino-IDE/arduino-ide
 
 # enable touchpad tab to click. use xinput to list all input, change "ELAN0678:00 04F3:3195 Touchpad" with the name of the TouchPad device.
-exec_always xinput set-prop "ELAN0678:00 04F3:3195 Touchpad" "libinput Tapping Enabled" 1x
+exec_always xinput set-prop "Synaptics TM3289-021" "libinput Tapping Enabled" 1x
 
 # enable internationalization layout for us keyboard (in order to use Spanish special characters)
 exec_always setxkbmap -model pc105 -layout us altgr-intl
