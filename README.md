@@ -9,6 +9,9 @@ These files are tested and useful in my personal configuration, if someone wants
 The `scripts` directory has a serie of scripts to automate the installation and restart the setup to a functional state.
 Execute the scripts listed below in the given order.
 
+**Important:** Each time that need to enter the path to some directory, think about you need to make the directory or
+copy the content in a existed directory, in the second case user `/` at the end of the path.
+
 1. `install_and_setup_github_account.sh` script: This script will be install github and will ask you for the location of
    your PGP and SSH keys that use to login and sign in Github, and the location of you git config files. Additionally,
    this scripts will clone the dotfiles repo. To execute this script use the followin command:
