@@ -34,6 +34,8 @@ rsync -au $dotfiles_dir/lsd ~/.config
 
 rsync -au $dotfiles_dir/.emacs $dotfiles_dir/.emacs.d ~/
 
+rsync -au $dotfiles_dir/NerdFonts ~/.local/share/fonts/
+
 cat <<END
 +----------------------------------------------------------------+
   The configuration files has been restored successfully.
