@@ -174,17 +174,6 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-echo -n "Please enter the path to the task data directory:"
-read taskData
-
-rsync -au $taskData ~/
-
-cat <<END
-+----------------------------------------------------------------+
-  The task data has been restored successfully.
-+----------------------------------------------------------------+
-END
-
 echo -n "Please enter the path to the task configuration file:"
 read taskConfigFile
 
