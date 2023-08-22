@@ -14,7 +14,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh network-manager-gnome bpytop wget translate-shell emacs mc gdu pdftk unrar youtube-dl calcurse taskwarrior libxcb1-dev build-essential ytfzf >> /dev/null"
+su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh network-manager-gnome bpytop wget translate-shell emacs mc gdu pdftk unrar youtube-dl calcurse taskwarrior libxcb1-dev build-essential ytfzf qemu-system libvirt-daemon-system virt-manager >> /dev/null"
 
 cat <<END
 +----------------------------------------------------------------+
