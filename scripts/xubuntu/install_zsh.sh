@@ -9,7 +9,7 @@ set -e
 export DEBIAN_FRONTEND=noninteractive
 
 scripts_dir=$(pwd)
-dotfiles_dir=$scripts_dir/..
+dotfiles_dir=$scripts_dir/../..
 
 cat <<END
 +-------------------------------------------------------+
