@@ -35,7 +35,7 @@ chmod +x setup.sh
 
 ./setup.sh
 
-rsync -au $dotfiles_dir/rofi ~/.config/rofi
+rsync -au $dotfiles_dir/rofi/ ~/.config/rofi
 
 rsync -a $dotfiles_dir/moon.jpg ~/Pictures
 
