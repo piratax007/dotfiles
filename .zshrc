@@ -115,7 +115,7 @@ alias ls="lsd -alF"
 alias calcurse="git -C ~/repos/calcurse pull -r && calcurse -D ~/repos/calcurse"
 alias task="git -C ~/.task pull -r && task"
 alias cat="batcat"
-alias youtube="ytfzf -Dl --pages=5 --type=all --disable-submenus=false"
+alias youtube="ytfzf -l --pages=5 --type=all --disable-submenus=false"
 
 [[ -s "/home/$(whoami)/.gvm/scripts/gvm" ]] && source "/home/$(whoami)/.gvm/scripts/gvm"
 
