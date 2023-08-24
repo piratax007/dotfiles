@@ -24,7 +24,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 
 sudo apt update && sudo apt -y install ros-humble-desktop >> /dev/null
 
-source /opt/ros/humble/setup.zsh
+# source /opt/ros/humble/setup.zsh
 
 cat <<END
 +------------------------------------------------------------+
