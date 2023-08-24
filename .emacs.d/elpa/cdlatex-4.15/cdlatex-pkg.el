@@ -1,0 +1,2 @@
+;; Generated package description from cdlatex.el  -*- no-byte-compile: t -*-
+(define-package "cdlatex" "4.15" "Fast input methods for LaTeX environments and math" 'nil :commit "9a09c2ad32e45889ab7696a8cedbf99d6a17edd6" :url "https://elpa.nongnu.org/nongnu/cdlatex.html" :authors '(("Carsten Dominik" . "carsten.dominik@gmail.com")) :maintainer '("Carsten Dominik" . "carsten.dominik@gmail.com") :keywords '("tex"))

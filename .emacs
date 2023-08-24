@@ -13,8 +13,9 @@
  '(fill-column 120)
  '(ispell-dictionary nil)
  '(package-selected-packages
-   '(yaml-mode smart-tabs-mode markdown-preview-mode js-auto-format-mode dockerfile-mode multi-line move-text go-mode python-mode monokai-theme markdown-mode))
- '(tab-width 4))
+   '(latex-extra cdlatex processing-mode yaml-mode smart-tabs-mode markdown-preview-mode js-auto-format-mode dockerfile-mode multi-line move-text go-mode python-mode monokai-theme markdown-mode))
+ '(tab-width 4)
+ '(warning-suppress-types '((comp) (comp) (comp))))
 (smart-tabs-insinuate 'python 'javascript 'ruby)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
