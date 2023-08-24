@@ -95,7 +95,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-sudo /home/$(whoami)/repos/dotfiles/scripts/docker_installation.sh $(whoami)
+sudo /home/$(whoami)/repos/dotfiles/scripts/xubuntu/docker_installation.sh $(whoami)
 
 cat <<END
 +----------------------------------------------------------------+
@@ -109,7 +109,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-sudo /home/$(whoami)/repos/dotfiles/scripts/tor_installation.sh
+sudo /home/$(whoami)/repos/dotfiles/scripts/xubuntu/tor_installation.sh
 
 cat <<END
 +----------------------------------------------------------------+
