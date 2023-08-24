@@ -52,7 +52,7 @@ existing_curl=`which curl || echo ""`
 if [ -z "$existing_curl" ]; then
     echo ""
     echo "Will be installed curl, please use your root password"
-    suso apt update && apt -y install curl >> /dev/null
+    suso apt update && sudo apt -y install curl >> /dev/null
 fi
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
