@@ -6,6 +6,22 @@ export DEBIAN_FRONTEND=noninteractive
 
 scripts_dir=$(pwd)
 dotfiles_dir=$scripts_dir/..
+user=$(whoami)
+
+cat <<END
++----------------------------------------------------------------+
+  Will be set the repositories list. In order to can do the
+  operation, please use your root password
++----------------------------------------------------------------+
+END
+
+su -c "rsync -au /home/$user/repos/dotfiles/sources.list /etc/apt/ && apt update >> /dev/null"
+
+cat <<END
++----------------------------------------------------------------+
+  The repositories list has been updated successfully.
++----------------------------------------------------------------+
+END
 
 cat <<END
 +----------------------------------------------------------------+
