@@ -15,7 +15,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "rsync -au /home/$user/repos/dotfiles/sources.list /etc/apt/ && apt update >> /dev/null"
+su -c "rsync -au $dotfiles_dir/sources.list /etc/apt/ && apt update >> /dev/null"
 
 cat <<END
 +----------------------------------------------------------------+
@@ -51,6 +51,11 @@ rsync -au $dotfiles_dir/lsd ~/.config
 rsync -au $dotfiles_dir/.emacs $dotfiles_dir/.emacs.d ~/
 
 rsync -au $dotfiles_dir/NerdFonts ~/.local/share/fonts/
+
+echo -n "Please enter the path of the sshd_config file, and use your root password in order to put that file in the right directory: "
+read sshConfigFile
+
+su -c "rsync sshConfigFile /etc/ssh/"
 
 cat <<END
 +----------------------------------------------------------------+
