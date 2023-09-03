@@ -116,6 +116,7 @@ alias calcurse="git -C ~/repos/calcurse pull -r && calcurse -D ~/repos/calcurse"
 alias task="git -C ~/.task pull -r && task"
 alias cat="batcat"
 alias youtube="ytfzf -l --pages=5 --type=all --disable-submenus=false"
+alias detach="udisksctl power-off -b $1"
 
 [[ -s "/home/$(whoami)/.gvm/scripts/gvm" ]] && source "/home/$(whoami)/.gvm/scripts/gvm"
 
