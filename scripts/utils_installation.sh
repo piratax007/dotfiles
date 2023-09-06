@@ -65,6 +65,8 @@ rsync -au $dotfiles_dir/.emacs $dotfiles_dir/.emacs.d ~/
 
 rsync -au $dotfiles_dir/NerdFonts ~/.local/share/fonts/
 
+rsync -au $dotfiles_dir/latexmkrc ~/.config/latexmk/
+
 echo -n "Please enter the path of the sshd_config file, and use your root password in order to put that file in the right directory: "
 read sshConfigFile
 su -c "rsync -au sshConfigFile /etc/ssh/ && systemctl disable ssh"
