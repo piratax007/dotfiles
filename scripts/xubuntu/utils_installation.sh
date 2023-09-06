@@ -22,6 +22,19 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
+echo -n "Do you want to install texlive and LaTeX tools: (y/n) "
+read userAnswer
+
+if [[ "$userAnswer" == "y" ]]; then
+    sudo /home/$(whoami)/repos/dotfiles/scripts/LaTeX_installation.sh
+fi
+
+cat <<END
++----------------------------------------------------------------+
+  The LaTeX utilities has been installed successfully.
++----------------------------------------------------------------+
+END
+
 cat <<END
 +----------------------------------------------------------------+
   Will be restored the configuration files.
