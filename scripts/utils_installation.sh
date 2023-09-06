@@ -30,11 +30,24 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh network-manager-gnome bpytop wget translate-shell emacs mc gdu pdftk unrar youtube-dl calcurse taskwarrior libxcb1-dev build-essential ytfzf qemu-system libvirt-daemon-system virt-manager >> /dev/null"
+su -c "apt -y install tilix lsd ranger cpufetch neofetch bat picom feh network-manager-gnome bpytop wget translate-shell emacs mc gdu pdftk unrar youtube-dl calcurse taskwarrior libxcb1-dev build-essential ytfzf qemu-system libvirt-daemon-system virt-manager pandoc >> /dev/null"
 
 cat <<END
 +----------------------------------------------------------------+
   The utilities has been installed successfully.
++----------------------------------------------------------------+
+END
+
+echo -n "Do you want to install texlive and LaTeX tools: (y/n) "
+read userAnswer
+
+if [[ "$userAnswer" == "y" ]]; then
+    su -c "/home/$(whoami)/repos/dotfiles/scripts/LaTeX_installation.sh"
+fi
+
+cat <<END
++----------------------------------------------------------------+
+  The LaTeX utilities has been installed successfully.
 +----------------------------------------------------------------+
 END
 
