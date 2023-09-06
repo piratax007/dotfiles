@@ -51,6 +51,8 @@ rsync -au $dotfiles_dir/NerdFonts ~/.local/share/fonts/
 
 rsync -au $dotfiles_dir/latexmkrc ~/.config/latexmk/
 
+rsync -au $dotfiles_dir/update_dotfiles ~/.local/bin/
+
 echo -n "Please enter the path of the sshd_config file, and use your password in order to put that file in the right directory: "
 read sshConfigFile
 sudo rsync -au sshConfigFile /etc/ssh/ && systemctl disable ssh

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -e
+
+existing_rsync=`which rsync || echo ""`
+if [ -z "existing_rsync" ]; then
+    echo ""
+    echo "Will be installed rsync, please use your root password"
+    su -c "apt -y install rsync >> /dev/null"
+fi
+
+EMACS_CONFIG_FILE=~/.emacs
+EMACS_PACKAGES_DIR=~/.emacs.d
+ICONS_THEME=~/.icons
+THEMES_DIR=~/.themes
+ZSHRC_FILE=./.zshrc
+ATUIN_CONFIG_DIR=~/.config/atuin
+I3_CONFIG_DIR=~/.config/i3
+I3STATUS_CONFIG_DIR=~/.config/i3status
+LATEXMKRC_FILE=~/.config/latexmk/latexmkrc
+LSD_CONFIG_DIR=~/.config/lsd
+NERDFONTS_DIR=~/.local/share/fonts/NerdFonts
+RANGER_CONFIG_DIR=~/.config/ranger
+ROFI_CONFIG_DIR=~/.config/rofi
+SOURCES_LIST_FILE=/etc/apt/sources.list
+UPDATE_DOTFILES_SCRIPT=~/.local/bin/update_dotfiles
+DEST=~/repos/dotfiles/
+
+rsync -au $I3STATUS_CONFIG_DIR $EMACS_PACKAGES_DIR $ICONS_THEME $THEMES_DIR $ZSHRC_FILE $ATUIN_CONFIG_DIR $I3_CONFIG_DIR $I3STATUS_CONFIG_DIR $LATEXMKRC_FILE $LSD_CONFIG_DIR $NERDFONTS_DIR $RANGER_CONFIG_DIR $ROFI_CONFIG_DIR $SOURCES_LIST_FILE $UPDATE_DOTFILES_SCRIPT $DEST
