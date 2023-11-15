@@ -117,6 +117,12 @@ alias task="git -C ~/.task pull -r && task"
 alias cat="batcat"
 alias youtube="ytfzf -l --pages=5 --type=all --disable-submenus=false"
 alias detach="udisksctl power-off -b $1"
+alias matlab=".local/share/MATLAB/R2023b/bin/matlab"
+alias ros1="distrobox enter ros1"
+# These two aliases need to be run into the ros1 box (after execute ros1)
+alias ros="source /opt/ros/noetic/setup.zsh"
+alias catkin="source ~/ros_workspaces/catkin_ws/devel/setup.zsh"
+
 
 [[ -s "/home/$(whoami)/.gvm/scripts/gvm" ]] && source "/home/$(whoami)/.gvm/scripts/gvm"
 
@@ -137,3 +143,4 @@ export PATH=$PATH:/home/$(whoami)/.spicetify
 eval "$(atuin init zsh)"
 
 export PATH=$HOME/.config/rofi/scripts:$PATH
+# source /opt/ros/noetic/setup.zsh
