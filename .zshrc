@@ -144,3 +144,6 @@ eval "$(atuin init zsh)"
 
 export PATH=$HOME/.config/rofi/scripts:$PATH
 # source /opt/ros/noetic/setup.zsh
+
+# In order to set distrobox to use Docker by default, is want to use podman by default replacer with podman
+export DBX_CONTAINER_MANAGER="podman"
