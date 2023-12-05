@@ -111,7 +111,7 @@ export PATH="$PATH:/home/$(whoami)/.local/bin"
 # alias bcoy='clear && rm ./bin/coyim && make build && ./bin/coyim'
 # alias bcoydb='G_DEBUG=fatal_warnings bin/coyim -debug'
 alias emacs="emacs -nw"
-alias ls="lsd -alF"
+alias ls="lsd -lF"
 alias calcurse="git -C ~/repos/calcurse pull -r && calcurse -D ~/repos/calcurse"
 alias task="git -C ~/.task pull -r && task"
 alias cat="batcat"
@@ -122,7 +122,8 @@ alias ros1="distrobox enter ros1"
 # These two aliases need to be run into the ros1 box (after execute ros1)
 alias ros="source /opt/ros/noetic/setup.zsh"
 alias catkin="source ~/ros_workspaces/catkin_ws/devel/setup.zsh"
-
+alias burger_turtlebot="export TURTLEBOT3_MODEL=burger"
+alias waffle_turtlebot="export TURTLEBOT3_MODEL=waffle"
 
 [[ -s "/home/$(whoami)/.gvm/scripts/gvm" ]] && source "/home/$(whoami)/.gvm/scripts/gvm"
 
