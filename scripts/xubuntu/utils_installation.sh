@@ -213,8 +213,9 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-rsync -au $dotfiles_dir/.icons/ ~/
-rsync -au $dotfiles_dir/.themes/ ~/
+rsync -au $dotfiles_dir/.icons ~/
+rsync -au $dotfiles_dir/.themes ~/
+rsync -au $dotfiles_dir/xfce4/ ~/.config/xfce4
 
 cat <<END
 +----------------------------------------------------------------+
