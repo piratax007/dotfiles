@@ -177,7 +177,7 @@ bindsym $mod+r mode "resize"
 # window colors
 #                       border              background         text                 indicator
 client.focused          $bg-color           $bg-color          $text-color          #ff0000
-client.unfocused        $iancative-bg-color $inactive-bg-color $inactive-text-color #ff0000
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #ff0000
 
 # bar
 bar {
