@@ -197,7 +197,7 @@ bar {
 
 
 # Compositor
-exec_always picom -f
+# exec_always picom -f
 
 # block session
 bindsym Ctrl+Mod1+l exec i3lock-fancy -g

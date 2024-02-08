@@ -121,7 +121,7 @@ alias matlab=".local/share/MATLAB/R2023b/bin/matlab"
 alias ros1="distrobox enter ros1"
 # These two aliases need to be run into the ros1 box (after execute ros1)
 alias ros="source /opt/ros/noetic/setup.zsh"
-alias catkin="source ~/ros_workspaces/catkin_ws/devel/setup.zsh"
+alias catkin="source ~/catkin_ws/devel/setup.zsh"
 alias burger_turtlebot="export TURTLEBOT3_MODEL=burger"
 alias waffle_turtlebot="export TURTLEBOT3_MODEL=waffle"
 
@@ -148,3 +148,11 @@ export PATH=$HOME/.config/rofi/scripts:$PATH
 
 # In order to set distrobox to use Docker by default, is want to use podman by default replacer with podman
 export DBX_CONTAINER_MANAGER="podman"
+
+# PX4
+# source ~/catkin_ws/src/PX4-Autopilot/Tools/simulation/gazebo-classic/setup_gazebo.bash ~/catkin_ws/src/PX4-Autopilot ~/catkin_ws/src/PX4-Autopilot/build/px4_sitl_default
+# export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/catkin_ws/src/PX4-Autopilot
+# export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/catkin_ws/src/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic
+# export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins
+
+
