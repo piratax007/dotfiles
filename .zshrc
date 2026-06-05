@@ -116,14 +116,25 @@ alias calcurse="git -C ~/repos/calcurse pull -r && calcurse -D ~/repos/calcurse"
 alias task="git -C ~/.task pull -r && task"
 alias cat="batcat"
 alias youtube="ytfzf -l --pages=5 --type=all --disable-submenus=false"
+# how to control brightness
+# install brightnessctl
+# run: sudo chmod +s $(which brightnessctl) 
+alias b="brightnessctl set "
 alias detach="udisksctl power-off -b $1"
-alias matlab=".local/share/MATLAB/R2023b/bin/matlab"
-alias ros1="distrobox enter ros1"
+alias matlab="/usr/local/MATLAB/R2025b/bin/matlab"
+alias ros1="source ~/ros_catkin_ws/install_isolated/setup.zsh"
 # These two aliases need to be run into the ros1 box (after execute ros1)
-alias ros="source /opt/ros/noetic/setup.zsh"
-alias catkin="source ~/catkin_ws/devel/setup.zsh"
-alias burger_turtlebot="export TURTLEBOT3_MODEL=burger"
-alias waffle_turtlebot="export TURTLEBOT3_MODEL=waffle"
+alias ros="source /opt/ros/humble/setup.zsh && source ~/ros2_ws/install/setup.zsh"
+alias crazyswarm=". install/local_setup.zsh"
+alias roscomplete="complete -o nospace -o default -F _python_argcomplete "ros2""
+alias ros2ws="ros && cd ~/ros2_ws && . install/local_setup.zsh && . install/setup.zsh"
+# Intel
+alias intel="ssh ncl-edu.research.intel-research.net"
+alias webSearchList="grep '^alias' .oh-my-zsh/plugins/web-search/web-search.plugin.zsh | sed 's/^alias \([^=]*\)=.*/\1/' | column"
+alias removeEmacsTemps="find . -name '*~' | xargs rm"
+# HPC2N
+alias alvis="ssh lagos@alvis1.c3se.chalmers.se"
+alias kebnekaise="ssh fausto@kebnekaise.hpc2n.umu.se"
 
 [[ -s "/home/$(whoami)/.gvm/scripts/gvm" ]] && source "/home/$(whoami)/.gvm/scripts/gvm"
 
@@ -149,10 +160,15 @@ export PATH=$HOME/.config/rofi/scripts:$PATH
 # In order to set distrobox to use Docker by default, is want to use podman by default replacer with podman
 export DBX_CONTAINER_MANAGER="podman"
 
-# PX4
-# source ~/catkin_ws/src/PX4-Autopilot/Tools/simulation/gazebo-classic/setup_gazebo.bash ~/catkin_ws/src/PX4-Autopilot ~/catkin_ws/src/PX4-Autopilot/build/px4_sitl_default
-# export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/catkin_ws/src/PX4-Autopilot
-# export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/catkin_ws/src/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic
-# export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins
+export PYTHONPATH=~/repos/crazyflie-firmware/build:$PYTHONPATH
 
+source /usr/share/colcon_cd/function/colcon_cd.sh
+export _colcon_cd_root=/opt/ros/humble/
+source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
 
+# export GAZEBO_PLUGIN_PATH=/opt/ros/humble/lib:$GAZEBO_PLUGIN_PATH
+# export LD_LIBRARY_PATH=/opt/ros/humble/lib:$LD_LIBRARY_PATH
+export IGN_GAZEBO_RESOURCE_PATH=/usr/share/ignition
+export GAZEBO_MODEL_PATH=/usr/share/ignition/gazebo/models
+export IGN_GAZEBO_SYSTEM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins
+export IGN_GAZEBO_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins

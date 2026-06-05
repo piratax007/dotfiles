@@ -1,0 +1,11 @@
+* Default
+** Crazyflie_RL_with_GymPybullet_Drones
+ - path :: ~/repos/Crazyflie_RL_with_GymPybullet_Drones
+** notes
+ - path :: ~/Documents/notes
+** MED26_Slides
+ - path :: ~/Documents/MED_2026/MED26_Slides
+** crazyflie-firmware
+ - path :: ~/repos/crazyflie-firmware
+** dotfiles
+ - path :: ~/repos/dotfiles
