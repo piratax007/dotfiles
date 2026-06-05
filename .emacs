@@ -416,6 +416,16 @@
                  TeX-run-TeX nil t
                  :help "Run latexmk")))
 
+(defun my-text-soft-wrap-setup ()
+  "Enable pleasant soft wrapping for text-oriented nodes."
+  (setq-local truncate-lines nil)
+  (setq-local word-wrap t)
+  (visual-line-mode 1))
+
+(add-hook 'org-mode-hook #'my-text-soft-wrap-setup)
+(add-hook 'markdown-mode-hook #'my-text-soft-wrap-setup)
+(add-hook 'text-mode-hook #'my-test-soft-wrap-setup)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
