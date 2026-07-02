@@ -136,6 +136,16 @@ alias removeEmacsTemps="find . -name '*~' | xargs rm"
 alias alvis="ssh lagos@alvis1.c3se.chalmers.se"
 alias kebnekaise="ssh fausto@kebnekaise.hpc2n.umu.se"
 
+KEBNEKAISE_HOST="fausto@kebnekaise.hpc2n.umu.se"
+KEBNEKAISE_RESULTS_PATH="/proj/nobackup/kebne_ltu_rmm/Fausto/Crazyflie_RL_with_GymPybullet_Drones/results"
+
+pull-result() {
+  local result="$1"
+  local destination="${2:-./$result}"
+
+  scp -r "${KEBNEKAISE_HOST}:${KEBNEKAISE_RESULTS_PATH}/${result}" "$destination"
+}
+
 [[ -s "/home/$(whoami)/.gvm/scripts/gvm" ]] && source "/home/$(whoami)/.gvm/scripts/gvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.

@@ -58,7 +58,7 @@
         inhibit-startup-screen t)
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-items '((recents . 5) (projects . 5) (agenda . 5))
+  (setq dashboard-items '((recents . 10) (projects . 5) (agenda . 10))
         dashboard-filter-agenda-entry 'dashboard-no-filter-agenda
         dashboard-match-agenda-entry "/!"
         dashboard-navigation-cycle t
@@ -67,11 +67,34 @@
         dashboard-icon-type 'nerd-icons
         dashboard-set-file-icons t))
 
+(require 'cl-lib)
+
+(defun my-treemacs-window ()
+  "Return the visible Treemacs window, if any."
+  (cl-find-if
+   (lambda (window)
+     (with-current-buffer (window-buffer window)
+       (eq major-mode 'treemacs-mode)))
+   (window-list)))
+
+(defun my-treemacs-toggle ()
+  "Open Treemacs if hidden, close it if visible."
+  (interactive)
+  (let ((window (my-treemacs-window)))
+    (if window
+	(delete-window window)
+      (treemacs))))
+
 (use-package treemacs
   :ensure t
   :after nerd-icons
   :custom
   (treemacs-width 50)
+  :bind
+  (("C-c t t" . my-treemacs-toggle)
+   ("C-c t o" . treemacs)
+   ("C-c t c" . treemacs-delete-window)
+   ("C-c t r" . treemacs-find-file))
   :config
   (treemacs-follow-mode 1)
   (treemacs-filewatch-mode 1)
@@ -98,7 +121,7 @@
   (dired-mode . dired-hide-details-mode)
   :custom
   (dired-listing-switches "-alh --group-directories-first")
-  (dired-dwin-target t)
+  (dired-dwim-target t)
   (delete-by-moving-to-trash t))
 
 (use-package dired-x
@@ -121,10 +144,10 @@
    ("C-c m n" . mc/mark-next-like-this)
    ("C-c m p" . mc/mark-previous-like-this)
    ("C-c m a" . mc/mark-all-like-this)
-   ("C-c m d" . mc/mark-all-like-this-dwin)
+   ("C-c m d" . mc/mark-all-like-this-dwim)
    ("C-c m r" . mc/mark-all-in-region)
    ("C-c m s" . mc/mark-next-like-this-symbol)
-   ("C-c m u" . mc/umark-next-like-this)
+   ("C-c m u" . mc/unmark-next-like-this)
    ("C-c m k" . mc/skip-to-next-like-this)
    ("C->" . mc/mark-next-like-this)
    ("C-<" . mc/mark-previous-like-this)
@@ -152,7 +175,17 @@
 			    "--background-index"
 			    "--clang-tidy"
 			    "--completion-style=detailed"
-			    "--header-insertion=never")))
+			    "--header-insertation=never")))
+  (let ((ltex-ls-bin (expand-file-name "~/.opt/ltex-ls-16.0.0/bin/ltex-ls")))
+    (when (file-executable-p ltex-ls-bin)
+      (add-to-list 'eglot-server-programs
+                   `(org-mode . (,ltex-ls-bin)))
+      (add-to-list 'eglot-server-programs
+                   `(markdown-mode . (,ltex-ls-bin)))
+      (add-to-list 'eglot-server-programs
+                   `(latex-mode . (,ltex-ls-bin)))
+      (add-to-list 'eglot-server-programs
+                   `(LaTeX-mode . (,ltex-ls-bin)))))
   (setq-default eglot-workspace-configuration
 		'(:pylsp
 		  (:plugins
@@ -162,7 +195,11 @@
 	            :pycodestyle
 		    (:maxLineLength 120)
 		    :mccabe
-		    (:threshold 15))))))
+		    (:threshold 15)))
+		  :ltex-ls
+		  (:language "en-US"
+			     :additionalRules
+			     (:motherTongue "es")))))
 
 (defun my-python-project-root ()
   "Return the current Python project root, or `default-directory'."
@@ -175,6 +212,18 @@
         (locate-dominating-file default-directory "requirements.txt")
         (locate-dominating-file default-directory ".git")
         default-directory)))
+
+(defun my-ltex-start-eglot ()
+  "Start Eglot/LTeX for prose-oriented buffers."
+  (when (and buffer-file-name
+             (file-executable-p
+              (expand-file-name "~/.opt/ltex-ls-16.0.0/bin/ltex-ls")))
+    (eglot-ensure)))
+
+(add-hook 'org-mode-hook #'my-ltex-start-eglot)
+(add-hook 'markdown-mode-hook #'my-ltex-start-eglot)
+(add-hook 'latex-mode-hook #'my-ltex-start-eglot)
+(add-hook 'LaTeX-mode-hook #'my-ltex-start-eglot)
 
 (defun my-python-locate-virtualenv (root)
   "Return a conventional virtual environment directory below ROOT, or nil."
@@ -262,6 +311,9 @@
       (eglot-ensure)
     (message "pylsp was not found; Python LSP features are disabled for this buffer.")))
 
+(with-eval-after-load 'eglot
+  (define-key eglot-mode-map (kbd "C-c g R") #'eglot-rename))
+
 (defun configure-python-workspace ()
   (setq-local indent-tabs-mode nil
               tab-width 4
@@ -337,6 +389,11 @@
   (define-key c-mode-base-map (kbd "C-c f") #'my-c-cpp-format-buffer)
   (define-key c-mode-base-map (kbd "C-c c") #'compile))
 
+(with-eval-after-load 'sh-script
+  (define-key sh-mode-map (kbd "C-c f") #'my-shfmt-buffer)
+  (define-key sh-mode-map (kbd "C-c l") #'my-shellcheck-buffer)
+  (define-key sh-mode-map (kbd "C-c c") #'compile))
+
 (defun my-shell-mode-setup ()
   "Configure Bash/sh development."
   (setq-local sh-basic-offset 2
@@ -388,16 +445,18 @@
     (user-error "shfmt is not installed")))
 
 (use-package markdown-mode
-  :hook (markdown-mode . turn-on-auto-fill))
+  :hook (markdown-mode . my-text-soft-wrap-setup))
 
 (use-package org
   :ensure nil
   :bind (("C-c l" . org-store-link)
          ("C-c a" . org-agenda))
   :custom
+  (org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "DOING(i)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)")))
+  (org-tag-alist '(("@backlog" . ?b)))
   (org-log-done 'time)
   (org-startup-with-inline-images t)
-  (org-image-actual-width nil)
+  (org-image-actual-width 450)
   (org-agenda-files (directory-files-recursively (expand-file-name "~/Documents/notes/") "\\.org$")))
 
 (use-package appt
@@ -418,13 +477,89 @@
 
 (defun my-text-soft-wrap-setup ()
   "Enable pleasant soft wrapping for text-oriented nodes."
+  (visual-line-mode 1)
   (setq-local truncate-lines nil)
   (setq-local word-wrap t)
-  (visual-line-mode 1))
+  (auto-fill-mode -1))
 
-(add-hook 'org-mode-hook #'my-text-soft-wrap-setup)
-(add-hook 'markdown-mode-hook #'my-text-soft-wrap-setup)
-(add-hook 'text-mode-hook #'my-test-soft-wrap-setup)
+(add-hook 'org-mode-hook #'my-text-soft-wrap-setup t)
+(add-hook 'markdown-mode-hook #'my-text-soft-wrap-setup t)
+(add-hook 'text-mode-hook #'my-text-soft-wrap-setup t)
+
+(use-package flyspell
+  :ensure nil
+  :hook
+  ((text-mode . flyspell-mode)
+   (org-mode . flyspell-mode)
+   (markdown-mode . flyspell-mode)
+   (prog-mode . flyspell-prog-mode))
+  :bind
+  (:map flyspell-mode-map
+	("C-c s n" . flyspell-goto-next-error)
+	("C-c s b" . flyspell-buffer)
+	("C-c s w" . ispell-word))
+  :custom
+  (ispell-program-name "hunspell")
+  (ispell-dictionary "en-US"))
+
+(defun my-set-spell-dictionary (dictionary)
+  "Switch spell-checking dictionary to DICTIONARY."
+  (interactive
+   (list
+    (completing-read
+     "Dictionary: "
+     '("en_US" "es_ES" "sv_SE")
+     nil t)))
+  (setq-local ispell-local-dictionary dictionary)
+  (ispell-change-dictionary dictionary)
+  (when (bound-and-true-p flyspell-mode)
+    (flyspell-buffer)))
+
+(defun my-spell-english ()
+  "Use English spell checking."
+  (interactive)
+  (my-set-spell-dictionary "en_US"))
+
+(defun my-spell-spanish ()
+  "Use Spanish spell checking."
+  (interactive)
+  (my-set-spell-dictionary "es_ES"))
+
+(defun my-spell-swedish ()
+  "Use Swedish spell checking."
+  (interactive)
+  (my-set-spell-dictionary "sv_SE"))
+
+(global-set-key (kbd "C-c s e") #'my-spell-english)
+(global-set-key (kbd "C-c s s") #'my-spell-spanish)
+(global-set-key (kbd "C-c s v") #'my-spell-swedish)
+
+(defun my-vterm-toggle ()
+  "Open or switch to a reusable vterm bugger."
+  (interactive)
+  (let ((buffer (get-buffer "*vterm*")))
+    (cond
+     ((and buffer (get-buffer-window buffer))
+      (delete-window (get-buffer-window buffer)))
+     (buffer
+      (pop-to-buffer buffer))
+     (t
+      (vterm)))))
+
+(use-package vterm
+  :commands vterm
+  :custom
+  (vterm-max-scrollback 10000)
+  :bind
+  (("C-c v" . my-vterm-toggle)
+   ("C-c V" . vterm)))
+
+(global-set-key (kbd "C-c w <up>") (lambda () (interactive) (enlarge-window 5)))
+(global-set-key (kbd "C-c w <down>") (lambda () (interactive) (shrink-window 5)))
+(global-set-key (kbd "C-c w <right>") (lambda () (interactive) (enlarge-window-horizontally 5)))
+(global-set-key (kbd "C-c w <left>") (lambda () (interactive) (shrink-window-horizontally 5)))
+
+(global-set-key (kbd "C-c w =") #'balance-windows)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
