@@ -3,7 +3,5 @@
  - path :: ~/repos/Crazyflie_RL_with_GymPybullet_Drones
 ** notes
  - path :: ~/Documents/notes
-** crazyflie-firmware
- - path :: ~/repos/crazyflie-firmware
-** dotfiles
- - path :: ~/repos/dotfiles
+** MED26_Slides
+ - path :: ~/Documents/MED_2026/MED26_Slides

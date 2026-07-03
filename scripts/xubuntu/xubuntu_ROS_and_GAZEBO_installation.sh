@@ -6,7 +6,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 cat <<END
 +------------------------------------------------------------+
-  Will be installed ROS 2 HUMBLE HAWKSBILL. Please use
+  Will be installed ROS 2 JAZZY JALISCO. Please use
   your password.
 +------------------------------------------------------------+
 END
@@ -18,17 +18,23 @@ if [ -z "$existing_software_properties_common" ]; then
     sudo apt -y install software-properties-common >> /dev/null
 fi
 
-sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F'"' '{print $4}')
 
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list >> /dev/null
+curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
 
-sudo apt update && sudo apt -y install ros-humble-desktop >> /dev/null
+sudo dpkg -i /tmp/ros2-apt-source.deb >> /dev/null
+
+sudo apt -y install ros-dev-tools >> /dev/null
+
+sudo apt update >> /dev/null && sudo apt -y upgrade >> /dev/null
+
+sudo apt -y install ros-jazzy-desktop-full
 
 # source /opt/ros/humble/setup.zsh
 
 cat <<END
 +------------------------------------------------------------+
-  ROS 2 HUMBLE HAWKSBILL. Has been installed succesfully.
+  ROS 2 JAZZY JALISCO. Has been installed succesfully.
 +------------------------------------------------------------+
 END
 
@@ -49,18 +55,18 @@ fi
 
 cat <<END
 +------------------------------------------------------------+
-  Will be installed GAZEBO IGNITION FORTRESS. Please use
+  Will be installed GAZEBO HARMONIC. Please use
   your password.
 +------------------------------------------------------------+
 END
 
-sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list >> /dev/null
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] https://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list >> /dev/null
 
-sudo apt update
+sudo apt-get update
 
-sudo apt -y install ignition-fortress
+sudo apt-get -y install gz-harmonic
 
 cat <<END
 +------------------------------------------------------------+

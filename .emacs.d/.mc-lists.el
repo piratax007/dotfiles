@@ -4,9 +4,15 @@
 (setq mc/cmds-to-run-for-all
       '(
 	keyboard-escape-quit
+	mouse-yank-primary
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	my-vterm-toggle
+	py-electric-colon
+	py-execute-buffer
+	py-execute-import-or-reload
+	py-newline-and-indent
 	switch-to-buffer
 	))
