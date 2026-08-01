@@ -7,14 +7,14 @@ export DEBIAN_FRONTEND=noninteractive
 existing_git=`which git || echo ""`
 if [ -z "$existing_git" ]; then
     echo ""
-    echo "Will be installed git, please use your root password"
+    echo "Will be installed git, please use your password"
     sudo apt update && sudo apt -y install git >> /dev/null
 fi
 
 existing_rsync=`which rsync || echo ""`
 if [ -z "$existing_rsync" ]; then
     echo ""
-    echo "Will be installed rsync, please use your root password"
+    echo "Will be installed rsync, please use your password"
     sudo apt update && sudo apt -y install rsync >> /dev/null
 fi
 
@@ -42,7 +42,7 @@ mkdir ~/repos
 
 cd ~/repos
 
-git clone git@github.com:piratax007/dotfiles.git
+git clone git@github.com-piratax007:piratax007/dotfiles.git
 
 cd ~
 
