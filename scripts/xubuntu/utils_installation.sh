@@ -14,7 +14,7 @@ cat <<END
 +----------------------------------------------------------------+
 END
 
-sudo apt -y install tilix ranger cpufetch neofetch bat picom feh network-manager-gnome bpytop wget translate-shell emacs mc gdu pdftk unrar libxcb1-dev build-essential qemu-system libvirt-daemon-system virt-manager pandoc tmux flameshot keepassxc peek okular vlc calibre bleachbit kdenlive bpick handbrake >> /dev/null
+sudo apt -y install tilix ranger cpufetch neofetch bat picom feh network-manager-gnome bpytop wget translate-shell emacs mc gdu pdftk unrar libxcb1-dev build-essential qemu-system libvirt-daemon-system virt-manager pandoc tmux flameshot keepassxc peek okular vlc calibre bleachbit kdenlive handbrake >> /dev/null
 
 cat <<END
 +----------------------------------------------------------------+
