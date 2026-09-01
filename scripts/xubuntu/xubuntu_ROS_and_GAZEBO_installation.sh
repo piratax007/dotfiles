@@ -19,6 +19,7 @@ if [ -z "$existing_software_properties_common" ]; then
 fi
 
 sudo add-apt-repository universe
+sudo apt update && sudo apt -y full-upgrade
 
 export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F'"' '{print $4}')
 
