@@ -20,7 +20,6 @@ fi
 
 sudo add-apt-repository universe
 sudo apt update && sudo apt -y full-upgrade
-sudo apt -y install ros-dev-tools >> /dev/null
 
 export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F'"' '{print $4}')
 
@@ -28,7 +27,11 @@ curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-a
 
 sudo dpkg -i /tmp/ros2-apt-source.deb >> /dev/null
 
-sudo apt update >> /dev/null && sudo apt -y upgrade >> /dev/null
+sudo apt update >> /dev/null
+
+sudo apt -y install ros-dev-tools >> /dev/null
+
+sudo apt -y upgrade >> /dev/null
 
 sudo apt -y install ros-jazzy-desktop-full
 
